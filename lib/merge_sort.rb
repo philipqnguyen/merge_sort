@@ -1,31 +1,24 @@
 # Opens Array and add merge_sort
 class Array
   def merge_sort
-    master_arr = each_slice(2).to_a
+    master_arr = each_slice(1).to_a
 
-    splitted_arr = master_arr.each do |arr|
-      next if arr.size != 2 || arr[0] < arr[1]
-      temp = arr[0]
-      arr[0] = arr[1]
-      arr[1] = temp
-    end
-
-    iterate splitted_arr
+    iterate master_arr
   end
 
   private
 
-  def iterate(splitted_arr, i = 1)
-    while splitted_arr.size > 1
-      i = 1 if i >= splitted_arr.size
+  def iterate(master_arr, i = 1)
+    while master_arr.size > 1
+      i = 1 if i >= master_arr.size
 
-      merged = merge(splitted_arr[i - 1], splitted_arr[i])
-      splitted_arr.delete_at i
-      splitted_arr.delete_at i - 1
-      splitted_arr.insert(i - 1, merged)
+      merged = merge(master_arr[i - 1], master_arr[i])
+      master_arr.delete_at i
+      master_arr.delete_at i - 1
+      master_arr.insert(i - 1, merged)
       i += 1
     end
-    splitted_arr.flatten
+    master_arr.flatten
   end
 
   def merge(left, right, result = [])
@@ -40,10 +33,6 @@ class Array
   end
 
   def all_sorted?(left, right)
-    if left.size == 0 && right.size == 0
-      true
-    else
-      false
-    end
+    left.size == 0 && right.size == 0 ? true : false
   end
 end
