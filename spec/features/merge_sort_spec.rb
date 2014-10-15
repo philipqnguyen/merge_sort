@@ -22,21 +22,21 @@ describe 'Merge sort' do
 end
 
 describe 'Merge Sort Benchmark' do
-  bench_performance_linear "random numbers", 0 do
+  bench_performance_linear 'random numbers', 0 do
     arr = (1..10).to_a.shuffle
     100.times do
       arr.merge_sort
     end
   end
 
-  bench_performance_linear "almost sorted", 0 do
+  bench_performance_linear 'almost sorted', 0 do
     arr = [1, 2, 4, 3, 5, 6, 7, 9, 8]
     100.times do
       arr.merge_sort
     end
   end
 
-  bench_performance_linear "reversed numbers", 0 do
+  bench_performance_linear 'reversed numbers', 0 do
     arr = [9, 8, 7, 6, 5, 4, 3, 2, 1]
     100.times do
       arr.merge_sort
